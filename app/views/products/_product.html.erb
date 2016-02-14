@@ -1,0 +1,11 @@
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <%= link_to product_path(product)  do %>
+      <%= image_tag "frame.jpg", class: "img-responsive" %>
+    </div>
+    <% end %>
+      <div class="caption">
+        <p><strong><%= link_to product.name, product_path(product)  %></strong></p>
+        <p>¥<%= product.price.to_f / 1 %></p><! For USD use $ @product.price.to_f / 100-->
+    </div>
+  </div>
