@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  #ENsure the user is logged in
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+
 
   # GET /products
   # GET /products.json
@@ -24,7 +27,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
 
     respond_to do |format|
       if @product.save
