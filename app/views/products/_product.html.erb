@@ -6,6 +6,6 @@
     <% end %>
       <div class="caption">
         <p><strong><%= link_to product.name, product_path(product)  %></strong></p>
-        <p>$<%= product.price.to_f / 1 %></p>  <!--For USD use $ @product.price.to_f / 100-->
+        <p>¥<%= product.price.to_f / 1 %></p>  <!--For USD use $ @product.price.to_f / 100-->
     </div>
   </div>
