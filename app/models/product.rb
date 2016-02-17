@@ -7,7 +7,7 @@ friendly_id :name, use: :slugged
   has_attached_file :image
   has_attached_file :resource
 
-  validates_numericallity_of :price,
+  validates_numericality_of :price,
     greather_then: 9, message: "Must be at least 10 yen"
     #		for US DOllAR use greather_then: 49, message: "Must be at least 50 cents" -->
 

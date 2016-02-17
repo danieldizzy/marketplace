@@ -1,19 +1,18 @@
-class TransactionsController < ApplicationController
+class TransactionsController<ApplicationController
 
   def create
     product = Product.find_by!(slug: params[:slug])
     token = params[:stripeToken]
 
     begin
-
       charge = Stripe::Charge.create(
       amount: product.price,
       currency: "jpy",
       card: token,
       description: current_user.email)
 
-      @sale = product.sales.create!(buyer_email: current_user.email)
-      redirect_to pickup_url(guid: @sale.guid)
+    @sale = product.sales.create!(buyer_email: current_user.email)
+    redirect_to pickup_url(guid: @sale.guid)
 
     rescue Stripe::CardError => e
       @error = e
